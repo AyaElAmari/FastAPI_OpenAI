@@ -20,9 +20,6 @@ app.add_middleware(
 class Checker(BaseModel):
     text: str
 
-@app.get("/", tags=["Root"])
-async def hello ():
-    return {"hello": "you success deploy guy..."}
 
 @app.post("/check")
 async def check_text_description(checker: Checker):
