@@ -4,7 +4,6 @@ from pydantic import BaseModel
 from utils import check_text
 from fastapi.middleware.cors import CORSMiddleware
 
-
 app = FastAPI()
 origins = [
     "*",
@@ -12,7 +11,7 @@ origins = [
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=origins,
+    allow_origins=["*"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -21,8 +20,13 @@ app.add_middleware(
 class Checker(BaseModel):
     text: str
 
+@app.get("/", tags=["Root"])
+async def hello ():
+    return {"hello": "you success deploy guy..."}
 
 @app.post("/check")
 async def check_text_description(checker: Checker):
     description = check_text(f"Text: {checker.text}")
     return {"Text": description}
+
+

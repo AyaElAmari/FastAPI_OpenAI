@@ -1,7 +1,12 @@
-
+from dotenv import load_dotenv
+import os
 import openai
 
-openai.api_key = "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" # Add your OpenAI API key here
+# Charger les variables d'environnement depuis le fichier .env
+load_dotenv()
+
+# Ajouter votre clé API OpenAI
+openai.api_key = os.getenv("OPENAI_API_KEY")
 
 def check_text(input):
     messages = [
