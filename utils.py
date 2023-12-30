@@ -21,3 +21,5 @@ def check_text(input):
     )
     reply = completion.choices[0].message.content
     return reply
+
+

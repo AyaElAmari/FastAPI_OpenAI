@@ -1,0 +1,17 @@
+---
+- name: Deploy FastAPI OpenAI
+  hosts: your_kubernetes_master_node
+  become: true
+
+  tasks:
+    - name: Deploy Backend
+      k8s:
+        definition: ./path/to/backend-deployment.yaml
+        kubeconfig: ~/.kube/config
+      become: true
+
+    - name: Deploy Backend Service
+      k8s:
+        definition: ./path/to/backend-service.yaml
+        kubeconfig: ~/.kube/config
+      become: true

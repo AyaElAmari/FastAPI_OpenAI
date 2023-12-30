@@ -2,6 +2,7 @@ import requests
 import json
 
 url = 'http://127.0.0.1:8000/check'
+
 headers = {
     'accept': 'application/json',
     'Content-Type': 'application/json'

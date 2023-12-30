@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: fastapi-openai-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: fastapi-openai
+  template:
+    metadata:
+      labels:
+        app: fastapi-openai
+    spec:
+      containers:
+      - name: fastapi-openai
+        image: ai_author_project-backend:latest
+        ports:
+        - containerPort: 8000
